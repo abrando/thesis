@@ -6,10 +6,15 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{lmodern}
+\usepackage{tablefootnote}
 \usepackage[sc]{mathpazo}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \hypersetup{pdftex, colorlinks=true,linkcolor=black}
+
+\usepackage{floatrow}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+\usepackage{blindtext}
 
 \author{Armando Brandonisio}
 \title{\textbf{Absorber characterization}\\COMPASS thesis}
@@ -43,16 +48,67 @@ Density & Light & Decay & Peak & Energy & Hygroscopicity  \\
 \section{Experimental set-up}
 Laboratory measurements have been carried out using a single rod made of GAGG produced by \emph{Furukawa} company.\\
 The rod has a square-base parallelepipoidale shape with a height of 30mm and a side of 3mm , thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
-To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon Fig~\ref{fig:gagg1}, that has a high reflection coefficient for small incident angles.\\
-
+To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon Fig~\ref{fig:gagg1}, that has a high reflection coefficient for small incident angles.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.4]{imm/gagg1.jpg}
+\includegraphics[scale=0.35]{imm/gagg1.jpg}
 \end{center}
 \caption{Scintillation rod made of GAGG wrapped with teflon}
 \label{fig:gagg1}
 \end{figure}
+
+The rod has been placed over a single SiPM, model LCT4/9 produced by the Hamamatsu company.\\
+Properties, CAD scheme and microscopic details of this SiPM are reported in Tab~\ref{tab:lct4}, Fig~\ref{fig:lct4_cad} and Fig~\ref{fig:lct4_1} respectively.
+
+\begin{figure}[h]
+\begin{floatrow}
+\ffigbox{%
+  \includegraphics[scale=0.58]{imm/lct4_cad.png}%
+}{%
+  \caption{CAD scheme for LCT4/9}\label{fig:lct4_cad}%
+}
+\capbtabbox{%
+\begin{tabular}{ll}
+\toprule
+Cell pitch & $75\mu m$ \\
+Device size & $3\times 3mm^2$\\
+Microcells & 1600\\
+Surface coating & Silicone resin\\
+Fill-factor & 73\% \\
+Breakdown\tablefootnote{At room temperature: 25$^{\circ} C$} & 51.10 V\\
+\bottomrule  
+\end{tabular}
+}{%
+  \caption{Main physical features of the LCT/9}\label{tab:lct4}%
+}
+\end{floatrow}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.20]{imm/lct4_1.jpg}
+\end{center}
+\caption{Image of LCT4/9 taken through a microscope.}
+\label{fig:lct4_1}
+\end{figure}
+
+This set of MPPCs produced by Hamamatsu, have an included proprietary circuit board with power supply for a direct hardware control from PC via USB connection (see Fig~\ref{fig:mppc}).\\
+The C12332 is a simple evaluation starter kit for non-cooled MPPC. MPPC evaluation is possible by mounting an MPPC in the socket of the sensor circuit board. The power supply circuit board is equipped with the C11204-01, a high-accuracy, high-voltage power supply that provides the operating voltage from MPPC. It operates just by connecting to an extenal power supply ($\pm 5V$). It is also equipped with a USB interface that can be used to set the operating voltage and temperature compensation coefficient from a PC running the supplied sample software.\\
+We used the power supply circuit board with serial number C12332 with nominal gain of 21 for LCT4/9.\\
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/mppc.png}
+\end{center}
+\caption{Connection example}
+\label{fig:mppc}
+\end{figure}
+
+
+
 
 \section{Definition of the operative range}
 
