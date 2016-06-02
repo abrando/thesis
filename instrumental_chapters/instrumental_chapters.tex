@@ -18,7 +18,7 @@
 \usepackage{blindtext}
 
 \author{Armando Brandonisio}
-\title{\textbf{Absorber characterization}\\COMPASS thesis}
+\title{\textbf{Instrumental chapters}\\COMPASS thesis}
 
 \begin{document}
 \maketitle
@@ -26,6 +26,8 @@
 
 
 \chapter{Absorber characterization}
+
+\section{Absorber properties}
 We investigated luminescence and scintillation properties of the $Gd_3 Al_2 Ga_3 O_{12} : Ce$ (GAGG) produced by \emph{Furukawa} company. The GAGG crystal has the highest light yield among oxide crystal at room temperature \cite{abs:1} and fast decay time for the detection of radioactivity and in nuclear and particle physics experiments.\\
 A list of the most important parameters for GAGG is reported in Table \ref{tab:abs1}.\\[2ex]
 Some fundamental features of this crystal are that it has no intrinsic radioactivity and it is a non-hygroscopic material. This allows a better usage for experimentation with low risk of contamination from ambient.\\[2ex]
@@ -43,17 +45,17 @@ Density & Light & Decay & Peak & Energy & Hygroscopicity  \\
  & & 258 (9\%) & & & \\
 \bottomrule
 \end{tabular}
-\caption{Physical and scintillation properties of GAGG} \label{tab:abs1}
+\caption{Physical and scintillation properties of GAGG (data from~\cite{gagg:1})} \label{tab:abs1}
 \end{table}
 
 \section{Experimental set-up}
 Laboratory measurements have been carried out using a single rod made of GAGG produced by \emph{Furukawa} company.\\
 The rod has a square-base parallelepipoidale shape with a height of 30mm and a side of 3mm , thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
-To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon Fig~\ref{fig:gagg1}, that has a high reflection coefficient for small incident angles.
+To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon Fig~\ref{fig:gagg1}, that has a high light diffusion power.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.35]{imm/gagg1.jpg}
+\includegraphics[scale=0.34]{imm/gagg1.jpg}
 \end{center}
 \caption{Scintillation rod made of GAGG wrapped with teflon}
 \label{fig:gagg1}
@@ -160,7 +162,7 @@ The produced support inserted in the experimental set-up is shown in Fig~\ref{fi
 \label{fig:support1}
 \end{figure}
 \newpage
-Sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$ have been used to illuminate the rod, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources. The source has a diameter of $1mm$. It's flux hasn't been collimated.\\
+Sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$ have been used to illuminate the rod, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources (Fig.~\ref{fig:support1}). The source has a diameter of $3mm$. It's flux has not been collimated.\\
 The alignment of the source along Z-direction has been carried out optically because the diameter of the beam spot was larger than the rod one, and therefore a rough alignment was sufficient.\\
 The SiPM signal was read and processed by electronic chain whose diagram is reported in Fig~\ref{fig:el_scheme}. Power supply circuit board permitted to vary the operative voltage applied to the SiPM through USB connection and thus the SiPM internal gain.\\
 The signal from SiPM was processed by a pre-amplifier welded on Hamamatsu circuit board and an amplifier ORTEC 450 \emph{Research Amplifier}, and then digitized by a Multi-Channel Analyzer (MCA) Amptek 8000A, which splits signal into 1024 digital channels in a dynamic range of 0-5V or 0-10V.\\
@@ -168,7 +170,7 @@ The SiPM is very sensitive to visible light, therefore dark conditions are neede
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/el_scheme.png}
+\includegraphics[scale=0.5]{imm/chain.png}
 \end{center}
 \caption{Sketch scheme of the electronic chain employed in the measurements to read and store SiPM signals}
 \label{fig:el_scheme}
@@ -179,7 +181,7 @@ The SiPM is very sensitive to visible light, therefore dark conditions are neede
 Some preliminary operations must be performed before starting the measurement process. In particular, the parameters of the electronic chain must be set to proper values, the digital channels of the MCA must be converted into charge values through a calibration and the experimental conditions must be analyzed.\\[2ex]
 The gains of the used SiPM and amplifier can be varied. It has been necessary to properly set these parameters in order to generate a signal within a range suitable to the MCA input dynamics.\\
 During the adjusting process, the gains were changed until the whole signal from the SiPM has been included in the spectrum collected by the MCA. An intense light source was necessary to guarantee a high measurement rate in order to collect a suitable number of events in a short time and to dominate dark current.\\
-We know that our GAGG rod has a light yield of $\sim 60$ photons/keV and $^{241}Am$ source has been chosen as relatively intense.\\[2ex]
+We know that our GAGG rod has a light yield of $\sim 60$ photons/keV ~\cite{gagg:1} and the activity of the $^{241}Am$ is $\sim 10\mu Ci$.\\[2ex]
 Here the instruments limitations:
 \begin{itemize}
 \item Hamamatsu datasheets says that we have a linearity of signal when we illuminate at the same time a number $<40\%-50 \%$ of MPPC pixels.
@@ -238,7 +240,7 @@ This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).
 \caption{Linear calibration function used to convert the measured digital channels into charge values for LCT5/1.}
 \label{fig:lin1}
 \end{figure}
-Furthermore an energy calibration was performed with radioactive sources cited in section 1.1 (Fig~\ref{fig:lin}).\\
+Furthermore an energy calibration was performed with radioactive sources described in section 1.1 (Fig~\ref{fig:lin}).\\
 Gaussian model was selected to fit sources photo-peaks.
 In order to improve fit, we studied a model that explain photopeak asymmetries for $^{109}Cd$ and $^{133}Ba$ (Fig~\ref{fig:th}).
 
@@ -292,7 +294,7 @@ A study of \emph{dark} counts has been performed to understand behavior of SiPM 
 \label{fig:fondo}
 \end{figure}
 
-Ambient noise is negligible with respect to sources rate. At low charge collection dark current dominates.\\
+Environmental noise is negligible with respect to sources rate. At low charge collection dark current dominates.\\
 An exponential curve was chosen to fit dark noise (Fig~\ref{fig:noise}). 
 
 \begin{figure}[!h]
@@ -321,12 +323,18 @@ Left plot of Fig~\ref{fig:res} ($^{55}Fe$ @ 5.9 kev), has an irregular distribut
 \label{fig:res}
 \end{figure}
 
+\chapter{Scatterer characterization}
+
 \clearpage
 \addcontentsline{toc}{chapter}{\refname}
 \begin{thebibliography}{20}
 
 \bibitem{abs:1}
 Hye-Lim Kim et al. Journal of Ceramic Processing Research. Vol. 16, No. 1, pp. 124-128, 2015
+
+\bibitem{gagg:1}
+\emph{Ce:GAGG Scintillator Crystal}, datasheet from Furukawa website (\url{http://www.furukawa-denshi.co.jp/cgi-bin/pdfdata/20140428162950.pdf})
+
 
 \end{thebibliography}
 \end{document}
