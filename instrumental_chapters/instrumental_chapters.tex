@@ -11,6 +11,7 @@
 \usepackage[sc]{mathpazo}
 \usepackage{booktabs}
 \usepackage{hyperref}
+\usepackage{fancyhdr}
 \hypersetup{pdftex, colorlinks=true,linkcolor=black}
 
 \usepackage{floatrow}
@@ -27,15 +28,18 @@
 
 \chapter{Absorber characterization}
 
-The aim 
+Characterization of scintillator rods is a fundamental starting point to understand possibilities and limits of the entire experiment.\\
+Absorber bars are the external objects of polarimeter design, and they must be made of a high atomic number $Z$ to maximize absorption of the radiation.\\
+A good light yield and emission velocity ($\leq 1\mu s$) are recomended to optimize spectrum detection and coincidence measurements.\\
+The agreement between absorber light emission spectrum and the photo-detection efficiency range of SiPM increases the collected charge of the readout process.\\
+The measurements have been carried out by illuminating the scintillation rod with a X-ray beam.\\
+$Si$PM and electronic chain parameters was varied measuring the relative position of the photo-peak in the spectrum produced by the scintillator.
+
 
 \section{Absorber properties}
 We investigated luminescence and scintillation properties of the $Gd_3 Al_2 Ga_3 O_{12} : Ce$ (GAGG) produced by \emph{Furukawa} company.\\
 The GAGG crystal has the highest light yield among oxide crystal at room temperature \cite{abs:1} and fast decay time for the detection of radioactivity and in nuclear and particle physics experiments.\\
-A list of the most important parameters for GAGG is reported in Table \ref{tab:abs1}.\\[2ex]
-Some fundamental features of this crystal are that it has no intrinsic radioactivity and it is a non-hygroscopic material. This allows a better usage for experimentation with low risk of contamination from ambient.\\[2ex]
-The measurements have been carried out by illuminating the scintillation rod with a X-ray beam.\\
-$Si$PM and electronic chain parameters was varied measuring the relative position of the photo-peak in the spectrum produced by the scintillator.
+A list of the most important parameters for GAGG is reported in Table \ref{tab:abs1}.
 
 \begin{table}[h]
 \begin{tabular}{cccccccc}
@@ -51,6 +55,27 @@ Density & Light & Decay & Peak & Energy & Hygroscopicity  \\
 \caption{Physical and scintillation properties of GAGG (data from~\cite{gagg:1})} \label{tab:abs1}
 \end{table}
 
+Some fundamental features of this crystal are that it has no intrinsic radioactivity and it is a non-hygroscopic material. This allows a better usage for experimentation with low risk of contamination from ambient.\\[2ex]
+
+We know all GAGG properties (Tab~\ref{tab:abs1}) and cross section values with respect to energy. Results value in Fig~\ref{fig:cs_gagg}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.25]{imm/cs_gagg.png}
+\end{center}
+\caption{Mass attenuation coefficients for the GAGG crystal (Data from~\cite{gagg:2})}
+\label{fig:cs_gagg}
+\end{figure}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.26]{imm/eff_gagg_3mm.png}
+\includegraphics[scale=0.26]{imm/eff_gagg_30mm.png}
+\end{center}
+\caption{Total GAGG efficiency for a thickness of 3mm (left) and 30mm (right)}
+\label{fig:eff_gagg}
+\end{figure}
+
+
 \section{Experimental set-up}
 Laboratory measurements have been carried out using a single rod made of GAGG produced by \emph{Furukawa} company.\\
 The rod has a square-base parallelepipoidale shape with a height of 30mm and a side of 3mm , thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
@@ -58,7 +83,7 @@ To minimize the loss of photons during scintillation, the bar was \emph{wrapped}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.34]{imm/gagg1.jpg}
+\includegraphics[scale=0.33]{imm/gagg1.jpg}
 \end{center}
 \caption{Scintillation rod made of GAGG wrapped with teflon}
 \label{fig:gagg1}
@@ -70,7 +95,7 @@ Properties, CAD scheme and microscopic details of this SiPM are reported in Tab~
 \begin{figure}[h]
 \begin{floatrow}
 \ffigbox{%
-  \includegraphics[scale=0.58]{imm/lct4_cad.png}%
+  \includegraphics[scale=0.55]{imm/lct4_cad.png}%
 }{%
   \caption{CAD scheme for LCT4/9 and LCT5/1}\label{fig:lct4_cad}%
 }
@@ -83,7 +108,7 @@ Device size & $3\times 3mm^2$\\
 Microcells & 1600\\
 Surface coating & Silicone resin\\
 Fill-factor & 73\% \\
-Breakdown\tablefootnote{At room temperature: 25$^{\circ} C$} & 51.10 V\\
+Breakdown & 51.10 V\\
 \bottomrule
  & \\
 \textbf{LCT5/1} &\\
@@ -93,7 +118,7 @@ Device size & $3\times 3mm^2$\\
 Microcells & 3600\\
 Surface coating & Silicone resin\\
 Fill-factor & 74\% \\
-Breakdown\tablefootnote{At room temperature: 25$^{\circ} C$} & 52.5 V\\
+Breakdown & 52.5 V\\
 \bottomrule
 \end{tabular}
 }{%
@@ -165,7 +190,16 @@ The produced support inserted in the experimental set-up is shown in Fig~\ref{fi
 \label{fig:support1}
 \end{figure}
 \newpage
-Sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$ have been used to illuminate the rod, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources (Fig.~\ref{fig:support1}). The source has a diameter of $3mm$. It's flux has not been collimated.\\
+Sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$ have been used to illuminate the rod, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources (Fig.~\ref{fig:support1}). The source, produced by \emph{Eckert \& Ziegler} company, has a diameter of $3mm$ (Fig~\ref{fig:source}). It's flux has not been collimated.\\
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.4]{imm/source.png}
+\end{center}
+\caption{Type M disk used as x-rays source~\cite{instr:sou}. }
+\label{fig:source}
+\end{figure}
+
 The alignment of the source along Z-direction has been carried out optically because the diameter of the beam spot was larger than the rod one, and therefore a rough alignment was sufficient.\\
 The SiPM signal was read and processed by electronic chain whose diagram is reported in Fig~\ref{fig:el_scheme}. Power supply circuit board permitted to vary the operative voltage applied to the SiPM through USB connection and thus the SiPM internal gain.\\
 The signal from SiPM was processed by a pre-amplifier welded on Hamamatsu circuit board and an amplifier ORTEC 450 \emph{Research Amplifier}, and then digitized by a Multi-Channel Analyzer (MCA) Amptek 8000A, which splits signal into 1024 digital channels in a dynamic range of 0-5V or 0-10V.\\
@@ -173,7 +207,7 @@ The SiPM is very sensitive to visible light, therefore dark conditions are neede
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/chain.png}
+\includegraphics[scale=0.55]{imm/chain.png}
 \end{center}
 \caption{Sketch scheme of the electronic chain employed in the measurements to read and store SiPM signals}
 \label{fig:el_scheme}
@@ -193,8 +227,7 @@ Here the instruments limitations:
 In order to prevent saturations or non-linearity in the final spectrum, we chose set-up parameters so that $^{241}Am$ photo-peak @ $59.5 keV$ was placed in the middle of MCA dynamic range.\\
 Gain and integration time of ORTEC450 and \emph{operative tension} ($V_{op}$) of SiPMs have been changed to optimize quality of spectrum.
 
-\subsection{Energy range}
-\textcolor{red}{Qui devo aggiungere l'efficienza dei SiPM + GAGG}\\
+\subsection{Expected efficiency}
 To define an energy range of measurement system we needed to know maximum efficiency interval for scintillator rod, SiPMs and both.
 Detector efficiency, as function of energy, is defined by:
 \begin{equation}
@@ -212,28 +245,41 @@ T(E) = e^{-\rho \delta \sigma(E)}
 A(E) = 1 - e^{-\rho \delta \sigma(E)}
 \end{equation}
 
-$\rho$ is the material density, $\delta$ the thickness and $\sigma(E)$ the cross section sums for coherent/incoherent Compton scattering and photoelectric effect as a function of energy.\\
-We know all GAGG properties (Tab~\ref{tab:abs1}) and cross section values with respect to energy\footnote{Data from: XCOM: Photon Cross Sections Database (\url{http://www.nist.gov/pml/data/xcom/}) }. Results value in Fig~\ref{fig:cs_gagg}.
+$\rho$ is the material density, $\delta$ the thickness and $\sigma(E)$ the cross section sums for coherent/incoherent Compton scattering and photoelectric effect as a function of energy. Plotted results are showed in Fig~\ref{fig:eff_gagg}.\\
+From literature I have found the SiPMs quantum efficiency curve~\cite{bonanno:1} and the GAGG light emission~\cite{gagg:3} to calculate the total efficiency of SiPM+GAGG system (Eq \ref{eqn:e}).
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.25]{imm/cs_gagg.png}
+\includegraphics[scale=0.4]{imm/lct_gagg.png}
 \end{center}
-\caption{Mass attenuation coefficients for the GAGG crystal}
-\label{fig:cs_gagg}
+\caption{LCT5/1 QE and GAGG light emission}
+\label{fig:lin1}
 \end{figure}
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.24]{imm/eff_gagg_3mm.png}
-\includegraphics[scale=0.24]{imm/eff_gagg_30mm.png}
-\end{center}
-\caption{Total GAGG efficiency for a thickness of 3mm (left) and 30mm (right)}
-\label{fig:eff_gagg}
-\end{figure}
+
+\begin{equation}
+\epsilon_{tot} = \frac{\int_{\lambda} d\lambda \epsilon_{SiPM} \cdot \epsilon_{GAGG} }{\int_{\lambda} d\lambda \epsilon_{GAGG} }
+\label{eqn:e}
+\end{equation}
+
+Calculated efficiencies for LCT4/9 and LCT5/1 are listed in Tab~\ref{tab:eff}.
+
+\begin{table}[h]
+\begin{tabular}{cc}
+\toprule
+SiPM & Tot. efficiency \\
+\midrule
+LCT4/9 + GAGG& 30.1\% \\
+LCT5/1 + GAGG& 28.7\% \\
+\bottomrule
+\end{tabular}
+\caption{SiPM+GAGG efficiency}
+\label{tab:eff}
+\end{table}
 
 \section{Circuit calibration with X-ray sources}
-A calibration of the electronic chain has been performed in order to convert the digital channels of the MCA output spectra in charge values.\\
-Signals with similar amplitude, rise time and fall time of SiPM was produced by a pulse generator (BNC BL-2). \\The exact values of applied voltages have been measured through an oscilloscope connected to circuit. At the same time, the channel number of the peak produced by the signal in the MCA spectrum was stored and associated with the applied voltage.\\
+I calibrated the electronic chain has been in order to convert the digital channels of the MCA output spectra in charge values.\\
+Signals with similar amplitude, rise time and fall time of SiPM was produced by a pulse generator (BNC BL-2).\\
+I measured the exact values of applied voltages through an oscilloscope connected to circuit. At the same time, the channel number of the peak produced by the signal in the MCA spectrum was stored and associated with the applied voltage.\\
 This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).
 
 \begin{figure}[!h]
@@ -244,8 +290,8 @@ This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).
 \label{fig:lin1}
 \end{figure}
 Furthermore an energy calibration was performed with radioactive sources described in section 1.1 (Fig~\ref{fig:lin}).\\
-Gaussian model was selected to fit sources photo-peaks.
-In order to improve fit, we studied a model that explain photopeak asymmetries for $^{109}Cd$ and $^{133}Ba$ (Fig~\ref{fig:th}).
+I selected a gaussian model to fit sources photo-peaks.
+In order to improve fit, I studied a model that explain photopeak asymmetries for $^{109}Cd$ and $^{133}Ba$ (Fig~\ref{fig:th}).
 
 \begin{figure}[!h]
 \begin{center}
@@ -284,7 +330,7 @@ We also detected non-linearity for high energies values as expected (Fig~\ref{fi
 \caption{Non-linearity detection at high energies with LCT4/9.}
 \label{fig:nl}
 \end{figure}
-
+\newpage
 \subsection{Dark/Background noise}
 Background noise spectra (Fig~\ref{fig:fondo}) are fundamental informations to select best configuration for acquiring data.\\
 A study of \emph{dark} counts has been performed to understand behavior of SiPM as $V_{op}$ changes.
@@ -337,6 +383,18 @@ Hye-Lim Kim et al. Journal of Ceramic Processing Research. Vol. 16, No. 1, pp. 1
 
 \bibitem{gagg:1}
 \emph{Ce:GAGG Scintillator Crystal}, datasheet from Furukawa website (\url{http://www.furukawa-denshi.co.jp/cgi-bin/pdfdata/20140428162950.pdf})
+
+\bibitem{gagg:2}
+\emph{XCOM: Photon Cross Sections Database \url{http://www.nist.gov/pml/data/xcom/}}
+
+\bibitem{instr:sou}
+\emph{Section Gamma and X-Ray Standards. \url{http://www.ezag.com/fileadmin/ezag/user-uploads/isotopes/isotopes/Isotrak/isotrak-pdf/Product_literature/EZIPL/Gamma_Standards_All_Types.pdf}}
+
+\bibitem{bonanno:1}
+Bonanno et al. doi:10.1016/j.nima.2015.10.064
+
+\bibitem{gagg:3}
+Seferis et al. doi:10.1007/978-3-319-00846-2-113, 2013
 
 
 \end{thebibliography}
