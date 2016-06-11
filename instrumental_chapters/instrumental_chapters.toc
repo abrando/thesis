@@ -10,11 +10,12 @@
 \contentsline {section}{\numberline {1.5}Energy resolution measurement}{15}{section.1.5}
 \contentsline {chapter}{\numberline {2}Scatterer characterization}{16}{chapter.2}
 \contentsline {section}{\numberline {2.1}Scatterer properties}{16}{section.2.1}
-\contentsline {section}{\numberline {2.2}Study at low energy}{17}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Set-up parameters}{17}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Dark current comparison}{17}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Study at high energy}{17}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Set-up parameters}{17}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Spectra analysis}{17}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Energy resolution measurement}{17}{subsection.2.3.3}
-\contentsline {chapter}{References}{18}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.1.1}Intrinsic properties }{17}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Study at low energy}{19}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Set-up parameters}{19}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Dark current comparison}{19}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Study at high energy}{19}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Set-up parameters}{19}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Spectra analysis}{19}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Energy resolution measurement}{19}{subsection.2.3.3}
+\contentsline {chapter}{References}{20}{subsection.2.3.3}

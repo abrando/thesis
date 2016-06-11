@@ -373,8 +373,12 @@ Left plot of Fig~\ref{fig:res} ($^{55}Fe$ @ 5.9 kev), has an irregular distribut
 \end{figure}
 
 \chapter{Scatterer characterization}
-Scatterer rods are the inner components of Compton polarimeter design. They are made of plastic scintillator  
-Plastic scintillators have a low atomic number $Z$.\\
+Scatterer rods are the inner components of Compton polarimeter design. They are made of plastic scintillator.\\  
+Plastic scintillators have a low atomic number $Z$ which maximize the probability for the incident radiation to undergo Compton scattering.\\
+These kind of scinltillators have a light yield $\sim$3-times lower than GAGG or high-Z materials, for this reason I needed to change circuit board parameters to increase nominal gain.\\
+The measurement have been carried out by illuminating the scintillation rod with a X-ray source.\\
+The high-gain system allows to show the SiPM quantized spectrum, that has been analyzed with a ad-hoc software (discussed in the next chapter) to extract physical informations as resolution, calibration and collected charge. 
+
 
 \section{Scatterer properties}
 I investigated luminescence and scintillation properties of plastic rods produced by \emph{Eljen Technology}, listed in Tab~\ref{tab:ej}.\\
@@ -419,6 +423,27 @@ EJ-260 and green emitting plastic scintillators have been formulated for use whe
 \bottomrule    
 \end{tabular}
 \end{table}
+
+\subsection{Intrinsic properties }
+
+ciao
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/cs_ej-2xx.png}
+\end{center}
+\caption{Mass attenuation coefficient for Eljen plastic scintillators. (Data from~\cite{gagg:2})} 
+\label{fig:ejcs}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/eff_ej-2xx.png}
+\end{center}
+\caption{Total Polyvinyltoluene absorption efficiency for a thickness of 60mm} 
+\label{fig:ejcs}
+\end{figure}
+
 
 \section{Study at low energy}
 \subsection{Set-up parameters}
