@@ -79,13 +79,13 @@ We know all GAGG properties (Tab~\ref{tab:abs1}) and cross section values with r
 \section{Experimental set-up}
 Laboratory measurements have been carried out using a single rod made of GAGG produced by \emph{Furukawa} company.\\
 The rod has a square-base parallelepipoidale shape with a height of 30mm and a side of 3mm , thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
-To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon Fig~\ref{fig:gagg1}, that has a high light diffusion power.
+To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon tape Fig~\ref{fig:gagg1}, that has a high light diffusion power.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.33]{imm/gagg1.jpg}
 \end{center}
-\caption{Scintillation rod made of GAGG wrapped with teflon}
+\caption{Scintillation rod made of GAGG wrapped with teflon tape}
 \label{fig:gagg1}
 \end{figure}
 
@@ -373,7 +373,7 @@ Left plot of Fig~\ref{fig:res} ($^{55}Fe$ @ 5.9 kev), has an irregular distribut
 \end{figure}
 
 \chapter{Scatterer characterization}
-Scatterer rods are the inner components of Compton polarimeter design. They are made of plastic scintillator.\\  
+Scatterer rods are the inner components of Compton polarimeter design. They are made of plastic scintillator and wrapped with Teflon tape.\\  
 Plastic scintillators have a low atomic number $Z$ which maximize the probability for the incident radiation to undergo Compton scattering.\\
 These kind of scinltillators have a light yield $\sim$3-times lower than GAGG or high-Z materials, for this reason I needed to change circuit board parameters to increase nominal gain.\\
 The measurement have been carried out by illuminating the scintillation rod with a X-ray source.\\
@@ -426,24 +426,48 @@ EJ-260 and green emitting plastic scintillators have been formulated for use whe
 
 \subsection{Intrinsic properties }
 
-ciao
+All Eljen plastic scintillator rods are made of Polyvinyltoluene ($C_{27}H_{30}$), and small internal variations between EJ-200, EJ-204 and EJ-260 are negligible to study interaction with X-ray photons.\\
+In Tab~\ref{tab:ej} are listed all basical features of used plastic scintillators, so I calculated mass attenuation coefficient with respect to photon energy between 1keV and 100 keV (Fig~\ref{fig:ejcs}).\\
+In the energy range of 1keV-10keV the photoelectric effect dominates. When energy photons is $\sim$20 keV, photoelectric effect and Compton effect are almost the same, and for energy between 20keV and 100keV Compton effect dominates.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/cs_ej-2xx.png}
+\includegraphics[scale=0.45]{imm/cs_ej-2xx.png}
 \end{center}
 \caption{Mass attenuation coefficient for Eljen plastic scintillators. (Data from~\cite{gagg:2})} 
 \label{fig:ejcs}
 \end{figure}
 
+From equations (~\ref{eqn:a}) I calculated efficiency of total interactions for a 60mm thick rod (Fig~\ref{fig:ejef}).
+
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/eff_ej-2xx.png}
+\includegraphics[scale=0.45]{imm/eff_ej-2xx.png}
 \end{center}
 \caption{Total Polyvinyltoluene absorption efficiency for a thickness of 60mm} 
-\label{fig:ejcs}
+\label{fig:ejef}
 \end{figure}
 
+From Eljen datasheets~\cite{ej:3} is reported that all plastic scintillators have the same response to atomic particles (Fig.~\ref{fig:resp}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{imm/response.png}
+\end{center}
+\caption{Response (left) and range of atomic particles in plastic scintillator (right).~\cite{ej:3}} 
+\label{fig:resp}
+\end{figure}
+
+\subsection{Coupling with }
+Another important study point is to know scintillators emission spectra to optimize SiPM and scatterer coupling. 
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/ej_conf.png}
+\end{center}
+\caption{Emission spectrum of EJ-200~\cite{ej:3}, EJ-204~\cite{ej:204}, EJ-260~\cite{ej:260}}. 
+\label{fig:ejconf}
+\end{figure}
 
 \section{Study at low energy}
 \subsection{Set-up parameters}
@@ -482,6 +506,15 @@ General purpose plastic scintillator, EJ-200, EJ-204, EJ-208, EJ-212. \url{http:
 
 \bibitem{ej:2}
 Green emitting plastic scintillator, EJ-260, Ej-262. \url{http://www.eljentechnology.com/images/products/data_sheets/EJ-260_EJ-262.pdf}
+
+\bibitem{ej:3}
+EJ-200 plastic scintillator. \url{http://www.ggg-tech.co.jp/maker/eljen/ej-200.html}
+
+\bibitem{ej:204}
+EJ-204 plastic scintillator. \url{http://www.ggg-tech.co.jp/maker/eljen/ej-200.html}
+
+\bibitem{ej:260}
+EJ-260 plastic scintillator. \url{http://www.ggg-tech.co.jp/maker/eljen/ej-260.htm4}
 
 \end{thebibliography}
 \end{document}
