@@ -517,7 +517,37 @@ EJ-260 & 32.7\% & 35.5\%\\
 
 
 \section{Study at low energy}
+The first step of scatterer characterization is to choose SiPM with lower dark rate and better single photon resolution.\\
+I tested and compared three types of SiPMs as power circuit board overvoltage varies.
+
 \subsection{Set-up parameters}
+Eljen plastic scintillators have a light yield $\sim 3$-times lower than than GAGG, as discussed at the beginning of chapter. Therefore I needed to use a circuit board with increased nominal gain to 100. Used power supply circuit board was C12332 produced by Hamamatsu: the same tested for GAGG rod, but with an increased gain in preamplifier. \\
+The experimental set-up was the same used for GAGG measurements (Fig~\ref{fig:cad}) and the electronic chain is reported in Fig~\ref{fig:chain2}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.6]{imm/chain2.png}
+\end{center}
+\caption{Sketch scheme of electronic chain employed in the measurements to read and store SiPMs+scatterers signals.} 
+\label{fig:chain2}
+\end{figure}
+
+I chose the following parameters to perform measurements:
+\begin{itemize}
+\item Amplifier configuration:
+\begin{itemize}
+\item Coarse gain: 10
+\item Fine gain: 2
+\item Integration time: 50 ns
+\item Differentiation: OUT
+\end{itemize}
+\item MCA 8000A configuration:
+\begin{itemize}
+\item dynamic range: 0-5 V
+\item ADC channels: 4096
+\end{itemize}
+\end{itemize}
+
 \subsection{Dark current comparison}
 
 \section{Study at high energy}
