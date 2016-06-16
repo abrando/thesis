@@ -472,8 +472,7 @@ Used scatterers have different emission spectra (Fig~\ref{fig:ejconf}) and this 
 \end{figure}
 
 Used SiPM has been studied by Bonanno et al.~\cite{sipm:1} that measured their photon detection efficiency (PDE) (Discussed in \textcolor{red}{Capitolo sui SiPM}).\\
-I have combined SiPMs PDE and  (Fig~\ref{fig:sipm}).
-
+I combined SiPMs PDE and scatterers emission spectra (Fig~\ref{fig:sipm}) to calculate total efficiency of a single rod case.
 
 \begin{figure}[!h]
 \begin{center}
@@ -482,6 +481,40 @@ I have combined SiPMs PDE and  (Fig~\ref{fig:sipm}).
 \caption{Comparison between SiPMs photon detection efficiency and scatterers emission spectra}. 
 \label{fig:sipm}
 \end{figure}
+
+In the ideal case, the overall system efficiency is:
+
+\begin{equation}
+\label{eqn:eff}
+\varepsilon_{tot} = \varepsilon_{SiPM} \cdot \varepsilon_{scatt} \cdot \varepsilon_{geom} 
+\end{equation}
+where $\varepsilon_{SiPM}$ is the SiPM PDE, $\varepsilon_{scatt}$ is the scintillator efficiency and $\varepsilon_{geom}$ is the fraction of max light yield due to rod geometrical shape.\\
+In realistic case I must add another term $\varepsilon^*$ into equation~\ref{eqn:eff} because there are additional factors that decrease overall efficiency, like light loss through the rod and imperfect coupling between scatterer and SiPM with optical grease, causing a further loss of light.
+So equation~\ref{eqn:a} becames:
+
+\begin{equation}
+\varepsilon_{tot} = \varepsilon_{SiPM} \cdot \varepsilon_{scatt} \cdot \varepsilon_{geom} \cdot \varepsilon^*
+\end{equation}
+
+All Eljen tested scintillators are made of the same polymer, so I can assume that $\varepsilon_{geom} \cdot \varepsilon^*$ is the same for all scatterer rods (\textcolor{red}{probabilmente no, da rivedere}). For this reason I compared overall efficiencies normalized to $\varepsilon_{geom} \cdot \varepsilon^*$ using~\ref{eqn:e}. Results in Tab~\ref{tab:eff}.
+
+\begin{center}
+\begin{table}
+\label{tab:eff}
+\caption{Overall efficiencies for SiPMs + scatterers system normalized to $\varepsilon_{geom} \cdot \varepsilon^*$.}
+\begin{tabular}{ccc}
+ &\textbf{LCT5/1} & \textbf{LCT4/9} \\
+\toprule
+Config. & Tot. Efficiency & Tot. Efficiency\\
+\midrule
+EJ-200 & 33.7\% & 35.2\%\\
+EJ-204 & 31.5\% & 32.7\% \\
+EJ-260 & 32.7\% & 35.5\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{center}
+
 
 \section{Study at low energy}
 \subsection{Set-up parameters}
