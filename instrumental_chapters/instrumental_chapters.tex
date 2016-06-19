@@ -521,7 +521,7 @@ The first step of scatterer characterization is to choose SiPM with lower dark r
 I tested and compared three types of SiPMs as power circuit board overvoltage varies.
 
 \subsection{Set-up parameters}
-Eljen plastic scintillators have a light yield $\sim 3$-times lower than GAGG, as discussed at the beginning of chapter. Therefore I needed to use a circuit board with increased nominal gain to 100. Used power supply circuit board was C12332 produced by Hamamatsu: the same tested for GAGG rod, but with an increased gain in preamplifier. \\
+Eljen plastic scintillators have a light yield $\sim 3$-times lower than GAGG, as discussed at the beginning of chapter. Therefore I needed to use a circuit board with increased nominal gain to 100. Used power supply circuit board was C12332 produced by Hamamatsu: the same tested for GAGG rod, but with an increased gain for preamplifier. \\
 The experimental set-up was the same used for GAGG measurements (Fig~\ref{fig:cad}) and the electronic chain is reported in Fig~\ref{fig:chain2}.
 
 \begin{figure}[!h]
@@ -534,7 +534,7 @@ The experimental set-up was the same used for GAGG measurements (Fig~\ref{fig:ca
 
 I chose the following parameters to perform measurements:
 \begin{itemize}
-\item Amplifier configuration:
+\item Amplifier configuration (Ortec 474):
 \begin{itemize}
 \item Coarse gain: 10
 \item Fine gain: 2
@@ -550,7 +550,77 @@ I chose the following parameters to perform measurements:
 
 \subsection{Dark current comparison}
 
+The aim of dark noise study is to choice the SiPM with better performances. The way is to find a well defined single photon spectrum with lowest counting rate at the same set-up conditions.\\
+I studied dark current of LCT5/1 ($50\mu m$), LCT4/9 ($75\mu m$) and LCT4/20 ($100\mu m$).\\
+LCT5 SiPMs, as discussed in (\textcolor{red}{capitolo sipm}), are new generation photomultipliers compared to LCT4 sensors, with sensitive reduction of afterpulses and crosstalk effects.\\
+I measured and compared SiPMs spectra changing nominal overvoltage parameter.\\
+I first studied considered SiPMs at nominal voltage (+3V) (Fig~\ref{fig:noise+3}).
 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.6]{imm/noise_conf_lct.png}
+\end{center}
+\caption{Dark rate comparison at nominal overvoltage for LCT5/1, LC4/9 and LCT4/20.} 
+\label{fig:noise+3}
+\end{figure}
+
+LCT5/1 and LCT4/9 have a comparable single photon rate, but the first one has a better resolution that allows to distinguish all single photon spectra.\\
+LCT4/20 has a good single photon resolution but higher counting rate compared to other SiPMs. Furthermore this sensor achieves an higher collected charge value ($\sim 9e^-$) compared to others photomultipliers ($\sim 6e^-$) and this affects signal to noise ratio.\\
+I performed other measurements to varying of overvoltage between +2V and +5V:
+\begin{itemize}
+\item \textbf{LCT5/1:}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.6]{imm/noise_lct5.png}
+\end{center}
+\caption{Dark rate comparison changing overvoltage for LCT5/1.} 
+\label{fig:noise_lct5}
+\end{figure}
+\end{itemize}
+
+I integrated the same charge range for all overvoltage values to study noise total counts (Fig~\ref{fig:noise_lct5_int}). Results are showed in Fig~\ref{fig:noise_lct5_area}.
+
+\newpage
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{imm/noise_lct5_int.png}
+\end{center}
+\caption{Noise integration between 1-4 PE for LCT5/1.} 
+\label{fig:noise_lct5_int}
+\end{figure} 
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{imm/noise_lct5_area.png}
+\end{center}
+\caption{Integration results between 1-4 PE for LCT5/1.} 
+\label{fig:noise_lct5_area}
+\end{figure} 
+
+The result is that increasing of overvoltage affects noise total rate of $\sim$ 2 times between +2V and +5V values (Fig~\ref{fig:noise_lct5_area}).
+
+\newpage 
+\begin{itemize}
+\item \textbf{LCT4/9:}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{imm/noise_lct49.png}
+\end{center}
+\caption{Dark rate comparison changing overvoltage for LCT4/9.} 
+\label{fig:noise_lct49}
+\end{figure}
+\end{itemize}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.45]{imm/noise_lct49_area.png}
+\end{center}
+\caption{Integration results between 1-4 PE for LCT4/9.} 
+\label{fig:noise_lct49_area}
+\end{figure}
 
 \section{Study at high energy}
 \subsection{Set-up parameters}
