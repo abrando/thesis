@@ -18,5 +18,4 @@
 \contentsline {section}{\numberline {2.3}Study at high energy}{26}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Set-up parameters}{26}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Spectra analysis}{26}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Energy resolution measurement}{27}{subsection.2.3.3}
-\contentsline {chapter}{References}{30}{subsection.2.3.3}
+\contentsline {chapter}{References}{31}{figure.2.20}
