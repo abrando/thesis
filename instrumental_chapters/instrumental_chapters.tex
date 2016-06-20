@@ -622,9 +622,86 @@ The result is that increasing of overvoltage affects noise total rate of $\sim$ 
 \label{fig:noise_lct49_area}
 \end{figure}
 
+Finally I chose LCT5/1 SiPM as best sensor for high energy measurements.
+
 \section{Study at high energy}
+After choosing SiPM with best performances, I coupled sensor with scintillators to perform measurements with X-ray source.\\
+$^{109}Cd$ source has been used to illuminate the rods. It's activity was $\sim 5.8 \mu Ci (215 kBq)$ while acquiring data.\\
+Used scintillators rods are Ej-200, EJ-204 and EJ-260, with a dimensions of 3x3x60mm.\\
+The aim of scatterers characterization is to achieve the highest charge collection with best resolution of source photo-peak changing overvoltage value.
+
 \subsection{Set-up parameters}
+The experimental set-up was the same described in Par 2.2.1, with one exception: coarse gain was 4 instead of 10.\\
+In order to prevent saturation or non-linearity in the final spectrum, I chose this set-up parameters so $^{109}Cd$ photo peak @ 22 keV was placed in the $\sim$ 3/4 of MCA dynamic range while overvoltage is +6V.
 \subsection{Spectra analysis}
+All spectra analysis was performed with an ad hoc python script (discussed in ...) written to accelerate and automate physical results.\\
+An example of acquired spectrum with photo-peak is showed in fig~\ref{fig:es_spec}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/es_spec.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V).} 
+\label{fig:es_spec}
+\end{figure}
+
+As discussed in (cap sipm), SiPMs spectra at high gain are composed of multiple gaussian peaks for single photo-electron value that are distributed according to Poisson probability.\\
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/conf.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V) while varying overvoltage.} 
+\label{fig:es_conf}
+\end{figure}
+
+Physical properties of photo-peak need to be extracted integrating the whole spectrum with a multi-gaussian fit (Fig~\ref{fig:spec_int} and \ref{fig:spec_int_pk}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/spec_int.png}
+\end{center}
+\caption{Integration of acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V). The y-scale is Logarithmic to show the 4 orders of magnitude difference rate between dark noise and photo-peak. } 
+\label{fig:spec_int}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/spec_int_pk.png}
+\end{center}
+\caption{Integration of acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V). (Linear scale) } 
+\label{fig:spec_int_pk}
+\end{figure}
+
+With fit parameters I was able to study all principle SiPM characteristics and photo-peak information, i.e. scatterer differences.\\
+Linearity is well defined, because of high number of single photon detection with a good resolution ($\sim 10\%$), for this reason I calibrated ADC channels as function of photo-electrons number (Eq~\ref{eqn:cal}).
+
+\begin{equation}
+\label{eqn:cal}
+channel = A \cdot e^- + B
+\end{equation}
+
+A calibration example is showed in Fig~\ref{fig:cal}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.4]{imm/cal.png}
+\end{center}
+\caption{Calibration of integrated spectrum. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
+\label{fig:cal}
+\end{figure}
+
+I obtained photo-peak information considering the area of single PE peaks (Fig~\ref{fig:peak}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.4]{imm/area.png}
+\end{center}
+\caption{Integrated photo-peak area. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
+\label{fig:peak}
+\end{figure}
+
+
 \subsection{Energy resolution measurement}
 
 
