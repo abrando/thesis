@@ -627,7 +627,7 @@ Finally I chose LCT5/1 SiPM as best sensor for high energy measurements.
 \section{Study at high energy}
 After choosing SiPM with best performances, I coupled sensor with scintillators to perform measurements with X-ray source.\\
 $^{109}Cd$ source has been used to illuminate the rods. It's activity was $\sim 5.8 \mu Ci (215 kBq)$ while acquiring data.\\
-Used scintillators rods are Ej-200, EJ-204 and EJ-260, with a dimensions of 3x3x60mm.\\
+Used scintillators rods are EJ-200, EJ-204 and EJ-260, with a size of 3x3x60mm.\\
 The aim of scatterers characterization is to achieve the highest charge collection with best resolution of source photo-peak changing overvoltage value.
 
 \subsection{Set-up parameters}
@@ -645,15 +645,7 @@ An example of acquired spectrum with photo-peak is showed in fig~\ref{fig:es_spe
 \label{fig:es_spec}
 \end{figure}
 
-As discussed in (cap sipm), SiPMs spectra at high gain are composed of multiple gaussian peaks for single photo-electron value that are distributed according to Poisson probability.\\
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.5]{imm/conf.png}
-\end{center}
-\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V) while varying overvoltage.} 
-\label{fig:es_conf}
-\end{figure}
+As discussed in (cap sipm), SiPMs spectra at high gain are composed of multiple gaussian peaks for single photo-electron (PE) value that are distributed according to Poisson probability.\\
 
 Physical properties of photo-peak need to be extracted integrating the whole spectrum with a multi-gaussian fit (Fig~\ref{fig:spec_int} and \ref{fig:spec_int_pk}).
 
@@ -673,8 +665,8 @@ Physical properties of photo-peak need to be extracted integrating the whole spe
 \label{fig:spec_int_pk}
 \end{figure}
 
-With fit parameters I was able to study all principle SiPM characteristics and photo-peak information, i.e. scatterer differences.\\
-Linearity is well defined, because of high number of single photon detection with a good resolution ($\sim 10\%$), for this reason I calibrated ADC channels as function of photo-electrons number (Eq~\ref{eqn:cal}).
+With fit parameters I was able to study all main SiPM characteristics and photo-peak information, i.e. scatterer differences.\\
+Linearity is well defined because of high number of single photon detection with a good resolution ($\sim 10\%$), for this reason I calibrated ADC channels as function of photo-electrons number (Eq~\ref{eqn:cal}).
 
 \begin{equation}
 \label{eqn:cal}
@@ -685,13 +677,23 @@ A calibration example is showed in Fig~\ref{fig:cal}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.4]{imm/cal.png}
+\includegraphics[scale=0.37]{imm/cal.png}
 \end{center}
 \caption{Calibration of integrated spectrum. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
 \label{fig:cal}
 \end{figure}
 
-I obtained photo-peak information considering the area of single PE peaks (Fig~\ref{fig:peak}).
+I expected that difference between calibrated position of photon-electron peaks was $\sim 1e^-$. I considered this assumption as a further test for linearity (Fig~\ref{fig:diff}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.39]{imm/diff.png}
+\end{center}
+\caption{Differences between calibrated position of PE peaks. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
+\label{fig:diff}
+\end{figure}
+
+I obtained source photo-peak information integrating the area of single PE peaks. Fitting integrated points reveals information about position (collected charge), width (resolution) and rate. (Fig~\ref{fig:peak}). 
 
 \begin{figure}[!h]
 \begin{center}
@@ -701,9 +703,34 @@ I obtained photo-peak information considering the area of single PE peaks (Fig~\
 \label{fig:peak}
 \end{figure}
 
+SiPM spectrum has Poissonian distribution (discussed in ..), and therefore I expected a constant value for $FWHM/\sqrt{N}$, where FWHM is the width of single PE peaks and N is the number of considered PE. Result example in Fig~\ref{fig:fwhm}.
 
-\subsection{Energy resolution measurement}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.4]{imm/fwhm.png}
+\end{center}
+\caption{$FWHM/\sqrt{N}$ . [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
+\label{fig:fwhm}
+\end{figure}
 
+First PE width values (1 to 5 $e^-$) are quite inconsistent compared to high energy peaks, because of high rate that causes peak distortion and consequently a difficulty to fit curves increasing errors.\\[2ex]
+Other distortions are introduced by increasing the overvoltage value, that  makes totally asymmetric peaks (Fig~\ref{fig:es_conf}).
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/conf.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V) while varying overvoltage.} 
+\label{fig:es_conf}
+\end{figure}
+
+In this case used software does not converge while fitting, therefore I calculated position and photo-peak area by numerical integration. This way is logically more inaccurate than analytical study, because I can't elaborate a model that explains right distortions due to SiPM impurities and pile-up events.\\[2ex]
+
+I analyzed EJ-200, EJ-204 and EJ-260 spectra using explained methodology. Calibration results are listed in Tab (..) and fit results in Tab (..).\\[3ex]
+
+\begin{huge}
+\textcolor{red}{TABELLE}
+\end{huge}
 
 \clearpage
 \addcontentsline{toc}{chapter}{\refname}
