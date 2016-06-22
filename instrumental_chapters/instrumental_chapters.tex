@@ -29,15 +29,15 @@
 \chapter{Absorber characterization}
 
 Characterization of scintillator rods is a fundamental starting point to understand possibilities and limits of the entire experiment.\\
-Absorber bars are the external objects of polarimeter design, and they must be made of a high atomic number $Z$ to maximize absorption of the radiation.\\
-A good light yield and emission velocity ($\leq 1\mu s$) are recomended to optimize spectrum detection and coincidence measurements.\\
-The agreement between absorber light emission spectrum and the photo-detection efficiency range of SiPM increases the collected charge of the readout process.\\
-The measurements have been carried out by illuminating the scintillation rod with a X-ray beam.\\
-$Si$PM and electronic chain parameters was varied measuring the relative position of the photo-peak in the spectrum produced by the scintillator.
+Absorber bars are the external objects of polarimeter design, and they must be made of a high atomic number $Z$ to maximize the photoelectric absorption of the radiation and to minimize multiple scattering, which ''destroys'' the information on the polarization of the X-rays..\\
+A good light yield and decay time ($\leq 1\mu s$) are required to optimize spectrum detection and coincidence measurements.\\
+\textcolor{red}{The agreement between absorber light emission spectrum and the photo-detection efficiency range of SiPM increases the collected charge of the readout process.}\\
+I characterized the scintillator rods by illuminating the scintillation rod with a X-ray beam.\\
+I varied $Si$PM and electronic chain parameters and I measured the relative position of the photo-peak in the spectrum produced by the scintillator.
 
 
 \section{Absorber properties}
-We investigated luminescence and scintillation properties of the $Gd_3 Al_2 Ga_3 O_{12} : Ce$ (GAGG) produced by \emph{Furukawa} company.\\
+I investigated luminescence and scintillation properties of the $Gd_3 Al_2 Ga_3 O_{12} : Ce$ (GAGG) produced by \emph{Furukawa} company.\\
 The GAGG crystal has the highest light yield among oxide crystal at room temperature \cite{abs:1} and fast decay time for the detection of radioactivity and in nuclear and particle physics experiments.\\
 A list of the most important parameters for GAGG is reported in Table \ref{tab:abs1}.
 
@@ -55,30 +55,30 @@ Density & Light & Decay & Peak & Energy & Hygroscopicity  \\
 \caption{Physical and scintillation properties of GAGG (data from~\cite{gagg:1})} \label{tab:abs1}
 \end{table}
 
-Some fundamental features of this crystal are that it has no intrinsic radioactivity and it is a non-hygroscopic material. This allows a better usage for experimentation with low risk of contamination from ambient.\\[2ex]
-
-We know all GAGG properties (Tab~\ref{tab:abs1}) and cross section values with respect to energy. Results value in Fig~\ref{fig:cs_gagg}.
+Some fundamental features of this crystal are that it has no intrinsic radioactivity and it is a non-hygroscopic material. This allows a better usage for experimentation with low risk of contamination from ambient.\\
+I extracted from~\cite{gagg:2} the mass attenuation coefficient of GAGG for photoelectric absorption and Compton scattering (incoherent scattering in the figure). Results value in Fig~\ref{fig:cs_gagg}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.25]{imm/cs_gagg.png}
+\includegraphics[scale=0.24]{imm/cs_gagg.png}
 \end{center}
 \caption{Mass attenuation coefficients for the GAGG crystal (Data from~\cite{gagg:2})}
 \label{fig:cs_gagg}
 \end{figure}
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.26]{imm/eff_gagg_3mm.png}
-\includegraphics[scale=0.26]{imm/eff_gagg_30mm.png}
+\includegraphics[scale=0.24]{imm/eff_gagg_3mm.png}
+\includegraphics[scale=0.24]{imm/eff_gagg_30mm.png}
 \end{center}
 \caption{Total GAGG efficiency for a thickness of 3mm (left) and 30mm (right)}
 \label{fig:eff_gagg}
 \end{figure}
 
+\newpage
 
 \section{Experimental set-up}
-Laboratory measurements have been carried out using a single rod made of GAGG produced by \emph{Furukawa} company.\\
-The rod has a square-base parallelepipoidale shape with a height of 30mm and a side of 3mm , thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
+I used a single rod made of GAGG produced by \emph{Furukawa} company.\\
+The rod has the shape of a rectangular cuboid with square base of 3mmx3mm and height of 30 mm, thus their dimension results 2/3 lower  to the one expected for the polarimeter bars ($\sim 10mm$).\\
 To minimize the loss of photons during scintillation, the bar was \emph{wrapped} with Teflon tape Fig~\ref{fig:gagg1}, that has a high light diffusion power.
 
 \begin{figure}[!h]
@@ -89,7 +89,7 @@ To minimize the loss of photons during scintillation, the bar was \emph{wrapped}
 \label{fig:gagg1}
 \end{figure}
 
-The rod has been placed over a single SiPM, models LCT4/9 and LCT5/1 produced by the Hamamatsu company.\\
+I placed the rod on a single SiPM, models LCT4/9 and LCT5/1 produced by the Hamamatsu company.\\
 Properties, CAD scheme and microscopic details of this SiPM are reported in Tab~\ref{tab:lct4}, Fig~\ref{fig:lct4_cad} and Fig~\ref{fig:lct4_1} respectively.
 
 \begin{figure}[h]
@@ -138,18 +138,18 @@ Breakdown & 52.5 V\\
 \end{figure}
 
 This set of MPPCs produced by Hamamatsu, have an included proprietary circuit board with power supply for a direct hardware control from PC via USB connection (see Fig~\ref{fig:mppc}).\\
-The C12332 is a simple evaluation starter kit for non-cooled MPPC. MPPC evaluation is possible by mounting an MPPC in the socket of the sensor circuit board. The power supply circuit board is equipped with the C11204-01, a high-accuracy, high-voltage power supply that provides the operating voltage from MPPC. It operates just by connecting to an extenal power supply ($\pm 5V$). It is also equipped with a USB interface that can be used to set the operating voltage and temperature compensation coefficient from a PC running the supplied sample software.\\
+The C12332\footnote{Driver circuit for MPPC \url{https://www.hamamatsu.com/resources/pdf/ssd/c12332-01_kacc1233e.pdf}} is a simple evaluation starter kit for non-cooled MPPC. MPPC evaluation is possible by mounting an MPPC in the socket of the sensor circuit board. The power supply circuit board is equipped with the C11204-01, a high-accuracy, high-voltage power supply that provides the operating voltage from MPPC. It operates just by connecting to an extenal power supply ($\pm 5V$). It is also equipped with a USB interface that can be used to set the operating voltage and temperature compensation coefficient from a PC running the supplied sample software.\\
 We used the power supply circuit board with serial number C12332 with nominal gain of 21 for LCT4/9.\\
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/mppc.png}
+\includegraphics[scale=0.4]{imm/mppc.png}
 \end{center}
 \caption{Connection example}
 \label{fig:mppc}
 \end{figure}
 
-Sensor circuit and power supply board have been both fixed on an aluminum support covered by black duct tape (Fig~\ref{fig:mppc2}).
+I fixed both sensor circuit and power supply board both on an aluminum support covered by black duct tape (Fig~\ref{fig:mppc2}).
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.5]{imm/mppc2.jpg}
@@ -158,8 +158,8 @@ Sensor circuit and power supply board have been both fixed on an aluminum suppor
 \label{fig:mppc2}
 \end{figure}
 
-The GAGG rod has been placed over a single SiPM. The extremity of the rod in contact with the SiPM window entrance has been covered with optical grease in order to improve the transmission of optical photons to the microcells.\\
-A dedicated support has been projected and realized specifically for this experiment in order to hold the rod under study and to guarantee its contact with the SiPM.\\
+I placed the GAGG rod on a single SiPM. I used optical grase for the optical contact between the GAGG rod and the window of the SiPM in order to improve the transmission of optical photons to the microcells.\\
+A dedicated mechanical structure has been designed and produced specifically for this experiment in order to hold the rod under study and to guarantee its contact with the SiPM.\\
 The project drawing is reported in Fig~\ref{fig:cad} and the principal components legend below:
 \begin{itemize}
 \item (1) Aluminum support
@@ -170,7 +170,7 @@ The project drawing is reported in Fig~\ref{fig:cad} and the principal component
 \item (9) rod stops
 \item (11) circular support for x-ray sources
 \end{itemize}
-The produced support inserted in the experimental set-up is shown in Fig~\ref{fig:support1}.
+I show in Fig~\ref{fig:support1} a picture of the mechanical structure.
 
 \newpage
 \begin{figure}[!h]
@@ -190,24 +190,24 @@ The produced support inserted in the experimental set-up is shown in Fig~\ref{fi
 \label{fig:support1}
 \end{figure}
 \newpage
-Sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$ have been used to illuminate the rod, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources (Fig.~\ref{fig:support1}). The source, produced by \emph{Eckert \& Ziegler} company, has a diameter of $3mm$ (Fig~\ref{fig:source}). It's flux has not been collimated.\\
+I characterised the rod by illuminating with sources of $^{241}Am$, $^{109}Cd$, $^{133}Ba$, $^{55}Fe$, $^{137}Cs$, placed at a distance of about $5mm$ from the rod top, put on a circular aluminum support designed for the used radioactive sources (Fig.~\ref{fig:support1}). The source, produced by \emph{Eckert \& Ziegler} company, has a diameter of $3mm$ (Fig~\ref{fig:source}). It's flux has not been collimated.\\
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.4]{imm/source.png}
+\includegraphics[scale=0.38]{imm/source.png}
 \end{center}
 \caption{Type M disk used as x-rays source~\cite{instr:sou}. }
 \label{fig:source}
 \end{figure}
 
 The alignment of the source along Z-direction has been carried out optically because the diameter of the beam spot was larger than the rod one, and therefore a rough alignment was sufficient.\\
-The SiPM signal was read and processed by electronic chain whose diagram is reported in Fig~\ref{fig:el_scheme}. Power supply circuit board permitted to vary the operative voltage applied to the SiPM through USB connection and thus the SiPM internal gain.\\
+I connected the output signal from the C12332 board (SMB connector) to an electronic chain composed of 'ORTEC 474 Timing filter Amplifier' or 'ORTEC 450 Research amplifier' and 'Amptek MCA8000A Multichannel Analyzer'. Electronic chain diagram is reported in Fig~\ref{fig:el_scheme}. Power supply circuit board allows to vary the operative voltage applied to the SiPM through USB connection and thus the SiPM internal gain.\\
 The signal from SiPM was processed by a pre-amplifier welded on Hamamatsu circuit board and an amplifier ORTEC 450 \emph{Research Amplifier}, and then digitized by a Multi-Channel Analyzer (MCA) Amptek 8000A, which splits signal into 1024 digital channels in a dynamic range of 0-5V or 0-10V.\\
 The SiPM is very sensitive to visible light, therefore dark conditions are needed to perform the measurements. The dark conditions were assured by a \emph{dark box} ((4) in Fig~\ref{fig:cad}), a carton and a black cloth placed over the set-up.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.55]{imm/chain.png}
+\includegraphics[scale=0.51]{imm/chain.png}
 \end{center}
 \caption{Sketch scheme of the electronic chain employed in the measurements to read and store SiPM signals}
 \label{fig:el_scheme}
@@ -218,14 +218,14 @@ The SiPM is very sensitive to visible light, therefore dark conditions are neede
 Some preliminary operations must be performed before starting the measurement process. In particular, the parameters of the electronic chain must be set to proper values, the digital channels of the MCA must be converted into charge values through a calibration and the experimental conditions must be analyzed.\\[2ex]
 The gains of the used SiPM and amplifier can be varied. It has been necessary to properly set these parameters in order to generate a signal within a range suitable to the MCA input dynamics.\\
 During the adjusting process, the gains were changed until the whole signal from the SiPM has been included in the spectrum collected by the MCA. An intense light source was necessary to guarantee a high measurement rate in order to collect a suitable number of events in a short time and to dominate dark current.\\
-We know that our GAGG rod has a light yield of $\sim 60$ photons/keV ~\cite{gagg:1} and the activity of the $^{241}Am$ is $\sim 10\mu Ci$.\\[2ex]
+\textcolor{red}{We know that our GAGG rod has a light yield of $\sim 60$ photons/keV ~\cite{gagg:1} and the activity of the $^{241}Am$ is $\sim 10\mu Ci$.}\\[2ex]
 Here the instruments limitations:
 \begin{itemize}
-\item Hamamatsu datasheets says that we have a linearity of signal when we illuminate at the same time a number $<40\%-50 \%$ of MPPC pixels.
+\item Following the Hamamatsu datasheet, the SiPM is not linear if $> 40 \% - 50\%$ are simultaneously illuminated.
 \item MPPC signals are very fast ($<100ns$) and very frequents, but MCA accepts a minimum shaping time of $250ns$ with a 'first peak detection'.
 \end{itemize}
 In order to prevent saturations or non-linearity in the final spectrum, we chose set-up parameters so that $^{241}Am$ photo-peak @ $59.5 keV$ was placed in the middle of MCA dynamic range.\\
-Gain and integration time of ORTEC450 and \emph{operative tension} ($V_{op}$) of SiPMs have been changed to optimize quality of spectrum.
+I changed gain and integration time of ORTEC450 and \emph{operative voltage} ($V_{op}$) of SiPMs to reduce possibility of spectrum distortion due to wrong shaping time or excessive gain.
 
 \subsection{Expected efficiency}
 To define an energy range of measurement system we needed to know maximum efficiency interval for scintillator rod, SiPMs and both.
@@ -244,7 +244,6 @@ T(E) = e^{-\rho \delta \sigma(E)}
 \label{eqn:a}
 A(E) = 1 - e^{-\rho \delta \sigma(E)}
 \end{equation}
-
 $\rho$ is the material density, $\delta$ the thickness and $\sigma(E)$ the cross section sums for coherent/incoherent Compton scattering and photoelectric effect as a function of energy. Plotted results are showed in Fig~\ref{fig:eff_gagg}.\\
 From literature I have found the SiPMs quantum efficiency curve~\cite{bonanno:1} and the GAGG light emission~\cite{gagg:3} to calculate the total efficiency of SiPM+GAGG system (Eq \ref{eqn:e}).
 
@@ -278,9 +277,8 @@ LCT5/1 + GAGG& 28.7\% \\
 
 \section{Circuit calibration with X-ray sources}
 I calibrated the electronic chain has been in order to convert the digital channels of the MCA output spectra in charge values.\\
-Signals with similar amplitude, rise time and fall time of SiPM was produced by a pulse generator (BNC BL-2).\\
-I measured the exact values of applied voltages through an oscilloscope connected to circuit. At the same time, the channel number of the peak produced by the signal in the MCA spectrum was stored and associated with the applied voltage.\\
-This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).
+In the calibration I produced signals with similar amplitude, rise time and fall time of SiPM was produced by a pulse generator (BNC BL-2). I measured the values of applied voltages through an oscilloscope connected to circuit. At the same time, the channel number of the peak produced by the signal in the MCA spectrum was stored and associated with the applied voltage.\\
+\textcolor{red}{This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).}
 
 \begin{figure}[!h]
 \begin{center}
