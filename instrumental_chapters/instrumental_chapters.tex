@@ -6,13 +6,24 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage{lmodern}
 \usepackage{tablefootnote}
 \usepackage[sc]{mathpazo}
 \usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{multirow}
 \hypersetup{pdftex, colorlinks=true,linkcolor=black}
+
+\newcommand\mytokens[1]{\mytokenshelp#1 \relax\relax}
+\def\mytokenshelp#1 #2\relax{\allowbreak\grayspace\tokenscolor{#1}\ifx\relax#2\else
+ \mytokenshelp#2\relax\fi}
+\newcommand\tokenscolor[1]{\colorbox{gray!20}{\textcolor{black}{%
+  \ttfamily\mystrut\smash{\detokenize{#1}}}}}
+\def\mystrut{\rule[\dimexpr-\dp\strutbox+\fboxsep]{0pt}{%
+ \dimexpr\normalbaselineskip-2\fboxsep}}
+\def\grayspace{\hspace{0pt minus \fboxsep}}
 
 \usepackage{floatrow}
 \newfloatcommand{capbtabbox}{table}[][\FBwidth]
@@ -29,9 +40,9 @@
 \chapter{Absorber characterization}
 
 Characterization of scintillator rods is a fundamental starting point to understand possibilities and limits of the entire experiment.\\
-Absorber bars are the external objects of polarimeter design, and they must be made of a high atomic number $Z$ to maximize the photoelectric absorption of the radiation and to minimize multiple scattering, which ''destroys'' the information on the polarization of the X-rays..\\
+Absorber bars are the external objects of polarimeter design, and they must be made of a high atomic number $Z$ to maximize the photoelectric absorption of the radiation and to minimize multiple scattering, which \emph{destroys} the information on the polarization of the X-rays.\\
 A good light yield and decay time ($\leq 1\mu s$) are required to optimize spectrum detection and coincidence measurements.\\
-\textcolor{red}{The agreement between absorber light emission spectrum and the photo-detection efficiency range of SiPM increases the collected charge of the readout process.}\\
+The agreement between the maximum of light emission spectrum and the photo-detection efficiency range of SiPM increases the collected charge of the readout process.\\
 I characterized the scintillator rods by illuminating the scintillation rod with a X-ray beam.\\
 I varied $Si$PM and electronic chain parameters and I measured the relative position of the photo-peak in the spectrum produced by the scintillator.
 
@@ -218,13 +229,13 @@ The SiPM is very sensitive to visible light, therefore dark conditions are neede
 Some preliminary operations must be performed before starting the measurement process. In particular, the parameters of the electronic chain must be set to proper values, the digital channels of the MCA must be converted into charge values through a calibration and the experimental conditions must be analyzed.\\[2ex]
 The gains of the used SiPM and amplifier can be varied. It has been necessary to properly set these parameters in order to generate a signal within a range suitable to the MCA input dynamics.\\
 During the adjusting process, the gains were changed until the whole signal from the SiPM has been included in the spectrum collected by the MCA. An intense light source was necessary to guarantee a high measurement rate in order to collect a suitable number of events in a short time and to dominate dark current.\\
-\textcolor{red}{We know that our GAGG rod has a light yield of $\sim 60$ photons/keV ~\cite{gagg:1} and the activity of the $^{241}Am$ is $\sim 10\mu Ci$.}\\[2ex]
 Here the instruments limitations:
 \begin{itemize}
 \item Following the Hamamatsu datasheet, the SiPM is not linear if $> 40 \% - 50\%$ are simultaneously illuminated.
 \item MPPC signals are very fast ($<100ns$) and very frequents, but MCA accepts a minimum shaping time of $250ns$ with a 'first peak detection'.
 \end{itemize}
 In order to prevent saturations or non-linearity in the final spectrum, we chose set-up parameters so that $^{241}Am$ photo-peak @ $59.5 keV$ was placed in the middle of MCA dynamic range.\\
+I know that our GAGG rod has a light yield of $\sim 60$ photons/keV ~\cite{gagg:1} and the activity of the $^{241}Am$ is $\sim 10\mu Ci$.\\
 I changed gain and integration time of ORTEC450 and \emph{operative voltage} ($V_{op}$) of SiPMs to reduce possibility of spectrum distortion due to wrong shaping time or excessive gain.
 
 \subsection{Expected efficiency}
@@ -276,29 +287,26 @@ LCT5/1 + GAGG& 28.7\% \\
 \end{table}
 
 \section{Circuit calibration with X-ray sources}
-I calibrated the electronic chain has been in order to convert the digital channels of the MCA output spectra in charge values.\\
+I calibrated the electronic chain in order to convert the digital channels of the MCA output spectra in charge values.
 In the calibration I produced signals with similar amplitude, rise time and fall time of SiPM was produced by a pulse generator (BNC BL-2). I measured the values of applied voltages through an oscilloscope connected to circuit. At the same time, the channel number of the peak produced by the signal in the MCA spectrum was stored and associated with the applied voltage.\\
-\textcolor{red}{This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).}
-
+I calculated signal positions by weighted average for each amplitude value; example in Fig~\ref{fig:w}.
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.4]{imm/confronto_tot.png}
+\includegraphics[scale=0.3]{imm/w1.png}
+\includegraphics[scale=0.3]{imm/w2.png}
+\end{center}
+\caption{\emph{Left figure:} Whole spectrum used for calibration. \emph{Right figure:} Single signal acquired by MCA.}
+\label{fig:w}
+\end{figure}
+This operation has been repeated for different $V_{op}$ (Fig~\ref{fig:lin1}).
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.5]{imm/confronto_tot.png}
 \end{center}
 \caption{Linear calibration function used to convert the measured digital channels into charge values for LCT5/1.}
 \label{fig:lin1}
 \end{figure}
-Furthermore an energy calibration was performed with radioactive sources described in section 1.1 (Fig~\ref{fig:lin}).\\
-I selected a gaussian model to fit sources photo-peaks.
-In order to improve fit, I studied a model that explain photopeak asymmetries for $^{109}Cd$ and $^{133}Ba$ (Fig~\ref{fig:th}).
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.2]{imm/22kev_gauss.png}
-\includegraphics[scale=0.2]{imm/31kev_gauss.png}
-\end{center}
-\caption{Theoretical model that assumes laboratory probability of each convoluted line for a resolution of 30\%. Data from XCOM.}
-\label{fig:th}
-\end{figure}
+Furthermore I performed spectra measurements with radioactive sources described in section 1.1 (Fig~\ref{fig:fit}).\\
 
 \begin{figure}[!h]
 \begin{center}
@@ -312,6 +320,19 @@ In order to improve fit, I studied a model that explain photopeak asymmetries fo
 \label{fig:fit}
 \end{figure}
 
+\newpage
+I selected a gaussian model to fit sources photo-peaks.
+In order to improve fit, I studied a model that explain photopeak asymmetries for $^{109}Cd$ and $^{133}Ba$ (Fig~\ref{fig:th}). 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.2]{imm/22kev_gauss.png}
+\includegraphics[scale=0.2]{imm/31kev_gauss.png}
+\end{center}
+\caption{Theoretical model that assumes laboratory probability of each convoluted line for a resolution of 30\%. Data from XCOM.}
+\label{fig:th}
+\end{figure}
+Nearest spectral lines are not resolved due to the low process resolution, then I assumed that the convolved lines have the same width (or resolution). The sum of all gaussian-like lines is the expected photopeak.\\
+I associated experimental peak positions with well known laboratory sources spectra, then I calibrated MCA channels as a function of Energy (Fig~\ref{fig:lin}). 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.45]{imm/lin.png}
@@ -319,7 +340,6 @@ In order to improve fit, I studied a model that explain photopeak asymmetries fo
 \caption{Linear energy calibration in the range of 0-90KeV for LCT4/9.}
 \label{fig:lin}
 \end{figure}
-
 We also detected non-linearity for high energies values as expected (Fig~\ref{fig:nl}).
 \begin{figure}[!h]
 \begin{center}
@@ -330,14 +350,14 @@ We also detected non-linearity for high energies values as expected (Fig~\ref{fi
 \end{figure}
 \newpage
 \subsection{Dark/Background noise}
-Background noise spectra (Fig~\ref{fig:fondo}) are fundamental informations to select best configuration for acquiring data.\\
+Dark current noise and environmental background spectra (Fig~\ref{fig:fondo}) are fundamental informations to select best configuration for acquiring data.\\
 A study of \emph{dark} counts has been performed to understand behavior of SiPM as $V_{op}$ changes.
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.5]{imm/fondo.png}
 \end{center}
-\caption{Background noise acquisition with LCT5/1 ($V_{op}=+3V$)+ GAGG.}
+\caption{Dark current rate and environmental background acquisition with LCT5/1 ($V_{op}=+3V$)+ GAGG.}
 \label{fig:fondo}
 \end{figure}
 
@@ -346,18 +366,19 @@ An exponential curve was chosen to fit dark noise (Fig~\ref{fig:noise}).
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.25]{imm/fit3_2.png}
-\includegraphics[scale=0.25]{imm/fit4_2.png}
-\includegraphics[scale=0.25]{imm/fit5_2.png}
-\includegraphics[scale=0.25]{imm/fit6_2.png}
+\includegraphics[scale=0.26]{imm/fit3_2.png}
+\includegraphics[scale=0.26]{imm/fit4_2.png}
+\includegraphics[scale=0.26]{imm/fit5_2.png}
+\includegraphics[scale=0.26]{imm/fit6_2.png}
 \end{center}
 \caption{Dark rate study for LCT5/1+ GAGG} 
 \label{fig:noise}
 \end{figure}
 
+\newpage
 
 \section{Energy resolution measurement}
-Fitted sources photopeaks of section 1.3 has been analyzed to extrapolate energy resolution as a function of $V_{op}$.\\
+I analyzed fitted sources photopeaks of section 1.3 to study energy resolution as a function of $V_{op}$.\\
 We note that dark rate increases with the increase of $V_{op}$ but resolution seems to be better (decreases) with $V_{op}$.\\
 Left plot of Fig~\ref{fig:res} ($^{55}Fe$ @ 5.9 kev), has an irregular distribution with respect to $^{241}Am$ case, due to nearness of dark noise that affects error of photopeak position and width. 
 
@@ -371,7 +392,7 @@ Left plot of Fig~\ref{fig:res} ($^{55}Fe$ @ 5.9 kev), has an irregular distribut
 \end{figure}
 
 \chapter{Scatterer characterization}
-Scatterer rods are the inner components of Compton polarimeter design. They are made of plastic scintillator and wrapped with Teflon tape.\\  
+\textcolor{red}{Scatterer rods are the inner components of Compton polarimeter design.} They are made of plastic scintillator and wrapped with Teflon tape.\\  
 Plastic scintillators have a low atomic number $Z$ which maximize the probability for the incident radiation to undergo Compton scattering.\\
 These kind of scinltillators have a light yield $\sim$3-times lower than GAGG or high-Z materials, for this reason I needed to change circuit board parameters to increase nominal gain.\\
 The measurement have been carried out by illuminating the scintillation rod with a X-ray source.\\
@@ -426,7 +447,7 @@ EJ-260 and green emitting plastic scintillators have been formulated for use whe
 
 All Eljen plastic scintillator rods are made of Polyvinyltoluene ($C_{27}H_{30}$), and small internal variations between EJ-200, EJ-204 and EJ-260 are negligible to study interaction with X-ray photons.\\
 In Tab~\ref{tab:ej} are listed all basical features of used plastic scintillators, so I calculated mass attenuation coefficient with respect to photon energy between 1keV and 100 keV (Fig~\ref{fig:ejcs}).\\
-In the energy range of 1keV-10keV the photoelectric effect dominates. When energy photons is $\sim$20 keV, photoelectric effect and Compton effect are almost the same, and for energy between 20keV and 100keV Compton effect dominates.
+In the energy range of 1keV-10keV the photoelectric effect dominates. When energy photons is $\sim$20 keV, the mass attenuation coefficients of photoelectric effect and Compton effect are almost the same, and for energy between 20keV and 100keV Compton effect dominates.
 
 \begin{figure}[!h]
 \begin{center}
@@ -446,18 +467,18 @@ From equations (~\ref{eqn:a}) I calculated efficiency of total interactions for 
 \label{fig:ejef}
 \end{figure}
 
-From Eljen datasheets~\cite{ej:3} is reported that all plastic scintillators have the same response to atomic particles (Fig.~\ref{fig:resp}).
+%From Eljen datasheets~\cite{ej:3} is reported that all plastic scintillators have the same response to atomic particles (Fig.~\ref{fig:resp}).
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.8]{imm/response.png}
-\end{center}
-\caption{Response (left) and range of atomic particles in plastic scintillator (right).~\cite{ej:3}} 
-\label{fig:resp}
-\end{figure}
+%\begin{figure}[!h]
+%\begin{center}
+%\includegraphics[scale=0.8]{imm/response.png}
+%\end{center}
+%\caption{Response (left) and range of atomic particles in plastic scintillator (right).~\cite{ej:3}} 
+%\label{fig:resp}
+%\end{figure}
 
 \subsection{Coupling with SiPMs}
-The Eljen rods have been placed over a single SiPM. The extremity of the rod in contact with the SiPM window entrance has been covered with optical grease in order to improve the transmission of optical photons to the microcells.\\
+I Placed The Eljen rods over a single SiPM. The extremity of the rod in contact with the SiPM window entrance has been covered with optical grease in order to improve the transmission of optical photons to the microcells.\\
 Used scatterers have different emission spectra (Fig~\ref{fig:ejconf}) and this makes different ways to optimize system efficiency when coupling with different SiPMs. 
 
 
@@ -514,12 +535,12 @@ EJ-260 & 32.7\% & 35.5\%\\
 \end{center}
 
 
-\section{Study at low energy}
+\section{Study of the dark current rate}
 The first step of scatterer characterization is to choose SiPM with lower dark rate and better single photon resolution.\\
-I tested and compared three types of SiPMs as power circuit board overvoltage varies.
+I tested and compared three types of SiPMs as a function of the overvoltage applied to the SiPM.
 
 \subsection{Set-up parameters}
-Eljen plastic scintillators have a light yield $\sim 3$-times lower than GAGG, as discussed at the beginning of chapter. Therefore I needed to use a circuit board with increased nominal gain to 100. Used power supply circuit board was C12332 produced by Hamamatsu: the same tested for GAGG rod, but with an increased gain for preamplifier. \\
+Eljen plastic scintillators have a light yield of $\sim$ 10 ph/keV, $\sim 3$-times lower than GAGG, as discussed at the beginning of chapter. Therefore I needed to use a circuit board with preamplifier gain of 100. Used power supply circuit board was C12332 produced by Hamamatsu: the same tested for GAGG rod, but with an increased gain for preamplifier. \\
 The experimental set-up was the same used for GAGG measurements (Fig~\ref{fig:cad}) and the electronic chain is reported in Fig~\ref{fig:chain2}.
 
 \begin{figure}[!h]
@@ -550,7 +571,8 @@ I chose the following parameters to perform measurements:
 
 The aim of dark noise study is to choice the SiPM with better performances. The way is to find a well defined single photon spectrum with lowest counting rate at the same set-up conditions.\\
 I studied dark current of LCT5/1 ($50\mu m$), LCT4/9 ($75\mu m$) and LCT4/20 ($100\mu m$).\\
-LCT5 SiPMs, as discussed in (\textcolor{red}{capitolo sipm}), are new generation photomultipliers compared to LCT4 sensors, with sensitive reduction of afterpulses and crosstalk effects.\\
+LCT5 SiPMs, as discussed in (\textcolor{red}{capitolo sipm}), are new generation photomultipliers compared to LCT4 sensors, with sensitive reduction of afterpulses and crosstalk effects.
+\newpage
 I measured and compared SiPMs spectra changing nominal overvoltage parameter.\\
 I first studied considered SiPMs at nominal voltage (+3V) (Fig~\ref{fig:noise+3}).
 
@@ -562,9 +584,10 @@ I first studied considered SiPMs at nominal voltage (+3V) (Fig~\ref{fig:noise+3}
 \label{fig:noise+3}
 \end{figure}
 
-LCT5/1 and LCT4/9 have a comparable single photon rate, but the first one has a better resolution that allows to distinguish all single photon spectra.\\
+LCT5/1 and LCT4/9 have a comparable single photon rate, but the first one has a lower rate between single PE signals that allows to distinguish all single photon spectra.\\
 LCT4/20 has a good single photon resolution but higher counting rate compared to other SiPMs. Furthermore this sensor achieves an higher collected charge value ($\sim 9e^-$) compared to others photomultipliers ($\sim 6e^-$) and this affects signal to noise ratio.\\
 I performed other measurements to varying of overvoltage between +2V and +5V:
+\newpage
 \begin{itemize}
 \item \textbf{LCT5/1:}
 
@@ -577,7 +600,7 @@ I performed other measurements to varying of overvoltage between +2V and +5V:
 \end{figure}
 \end{itemize}
 
-I integrated the same charge range for all overvoltage values to study noise total counts (Fig~\ref{fig:noise_lct5_int}). Results are showed in Fig~\ref{fig:noise_lct5_area}.
+In order to compare dark noise rate I chose an interval between 1-PE and 4-PE weighted position. Then I integrated the same charge range for all overvoltage values to study noise total counts (Fig~\ref{fig:noise_lct5_int}). Results are showed in Fig~\ref{fig:noise_lct5_area}.
 
 \newpage
 
@@ -593,7 +616,7 @@ I integrated the same charge range for all overvoltage values to study noise tot
 \begin{center}
 \includegraphics[scale=0.45]{imm/noise_lct5_area.png}
 \end{center}
-\caption{Integration results between 1-4 PE for LCT5/1.} 
+\caption{Integration results between 1-4 PE for LCT5/1. Black dots are the integrated area results, red bars are the percentage difference with respect to $V_{op}=+2V$ integrated area.} 
 \label{fig:noise_lct5_area}
 \end{figure} 
 
@@ -620,36 +643,42 @@ The result is that increasing of overvoltage affects noise total rate of $\sim$ 
 \label{fig:noise_lct49_area}
 \end{figure}
 
-Finally I chose LCT5/1 SiPM as best sensor for high energy measurements.
+Finally I chose LCT5/1 SiPM as sensor with lower dark current rate and better signal to noise ratio for high energy measurements.
 
-\section{Study at high energy}
-After choosing SiPM with best performances, I coupled sensor with scintillators to perform measurements with X-ray source.\\
-$^{109}Cd$ source has been used to illuminate the rods. It's activity was $\sim 5.8 \mu Ci (215 kBq)$ while acquiring data.\\
-Used scintillators rods are EJ-200, EJ-204 and EJ-260, with a size of 3x3x60mm.\\
+\section{Study of the light yield}
 The aim of scatterers characterization is to achieve the highest charge collection with best resolution of source photo-peak changing overvoltage value.
+After choosing SiPM with best performances, I coupled sensor with scintillators to perform measurements with X-ray source.\\
+I used $^{109}$Cd source to illuminate the rods. It's activity was $\sim 5.8 \mu Ci (215 kBq)$ while acquiring data.\\
+Used scintillators rods are EJ-200, EJ-204 and EJ-260, with a size of 3x3x60mm.\\
 
 \subsection{Set-up parameters}
 The experimental set-up was the same described in Par 2.2.1, with one exception: coarse gain was 4 instead of 10.\\
-In order to prevent saturation or non-linearity in the final spectrum, I chose this set-up parameters so $^{109}Cd$ photo peak @ 22 keV was placed in the $\sim$ 3/4 of MCA dynamic range while overvoltage is +6V.
+In order to prevent saturation or non-linearity in the final spectrum, I chose this set-up parameters so $^{109}$Cd photo peak @ 22 keV was placed in the $\sim$ 3/4 of MCA dynamic range while overvoltage is +6V.
 \subsection{Spectra analysis}
-All spectra analysis was performed with an ad hoc python script (discussed in ...) written to accelerate and automate physical results.\\
-An example of acquired spectrum with photo-peak is showed in fig~\ref{fig:es_spec}.
+All spectra analysis was performed with following ad hoc python tasks (discussed in ...):
+\begin{itemize}
+\item \mytokens{find_peak}: function that finds spectrum peaks
+\item \mytokens{mg_fit}: multi-gaussian fit
+\item \mytokens{fwhm_lin}: study of FWHM/$\sqrt{N}$ linearity 
+\item \mytokens{cal_lin}: collected charge calibration
+\item \mytokens{position_diff}: linearity of n-PE position
+\item \mytokens{fit_area}: fitting integrated area or source photo-peak
+\end{itemize}
+An example of acquired spectrum with photo-peak is showed in Fig~\ref{fig:es_spec}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/es_spec.png}
+\includegraphics[scale=0.235]{imm/es_spec1.png}
 \end{center}
 \caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V).} 
 \label{fig:es_spec}
 \end{figure}
-
 As discussed in (cap sipm), SiPMs spectra at high gain are composed of multiple gaussian peaks for single photo-electron (PE) value that are distributed according to Poisson probability.\\
-
-Physical properties of photo-peak need to be extracted integrating the whole spectrum with a multi-gaussian fit (Fig~\ref{fig:spec_int} and \ref{fig:spec_int_pk}).
+Physical properties of photo-peak need to be extracted integrating the whole spectrum with a multi-gaussian fit using \mytokens{find_peak} and \mytokens{mg_fit} (Fig~\ref{fig:spec_int} and \ref{fig:spec_int_pk}).
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/spec_int.png}
+\includegraphics[scale=0.45]{imm/spec_int.png}
 \end{center}
 \caption{Integration of acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V). The y-scale is Logarithmic to show the 4 orders of magnitude difference rate between dark noise and photo-peak. } 
 \label{fig:spec_int}
@@ -657,12 +686,21 @@ Physical properties of photo-peak need to be extracted integrating the whole spe
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/spec_int_pk.png}
+\includegraphics[scale=0.45]{imm/spec_int_pk.png}
 \end{center}
 \caption{Integration of acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V). (Linear scale) } 
 \label{fig:spec_int_pk}
 \end{figure}
 
+SiPM spectrum has Poissonian distribution (discussed in ..), and therefore I expected a constant value for $FWHM/\sqrt{N}$, where FWHM is the width of single PE peaks and N is the number of considered PE. Result example of \mytokens{fwhm_lin} is showed in Fig~\ref{fig:fwhm}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.4]{imm/fwhm.png}
+\end{center}
+\caption{$FWHM/\sqrt{N}$ . [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
+\label{fig:fwhm}
+\end{figure}
 With fit parameters I was able to study all main SiPM characteristics and photo-peak information, i.e. scatterer differences.\\
 Linearity is well defined because of high number of single photon detection with a good resolution ($\sim 10\%$), for this reason I calibrated ADC channels as function of photo-electrons number (Eq~\ref{eqn:cal}).
 
@@ -671,17 +709,17 @@ Linearity is well defined because of high number of single photon detection with
 channel = A \cdot e^- + B
 \end{equation}
 
-A calibration example is showed in Fig~\ref{fig:cal}.
+Function (~\ref{eqn:cal}) is included in \mytokens{cal_lin} task. A calibration example is showed in Fig~\ref{fig:cal}.
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.37]{imm/cal.png}
+\includegraphics[scale=0.32]{imm/cal.png}
 \end{center}
 \caption{Calibration of integrated spectrum. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
 \label{fig:cal}
 \end{figure}
 
-I expected that difference between calibrated position of photon-electron peaks was $\sim 1e^-$. I considered this assumption as a further test for linearity (Fig~\ref{fig:diff}).
+I expected that difference between calibrated position of photon-electron peaks was $\sim 1e^-$. I considered this assumption as a further test for linearity (Fig~\ref{fig:diff}) and for this I used \mytokens{position_diff} task.
 
 \begin{figure}[!h]
 \begin{center}
@@ -691,44 +729,85 @@ I expected that difference between calibrated position of photon-electron peaks 
 \label{fig:diff}
 \end{figure}
 
-I obtained source photo-peak information integrating the area of single PE peaks. Fitting integrated points reveals information about position (collected charge), width (resolution) and rate. (Fig~\ref{fig:peak}). 
+I obtained spectrum information integrating the area of single PE peaks. The resulting curve is the source photo-peak with a gaussian distribution (Fig~\ref{fig:peak}). I fitted this curve with \mytokens{fit_area} task, that is a simple gaussian fit which reads \emph{centroid} (C) position as collected charge, \emph{amplitude} as counting rate per second, and FWHM as resolution (R) defined by (\ref{eqn:res}).
+
+\begin{equation}
+\label{eqn:res}
+R = \frac{FWHM [e^-]}{C [e^-]}
+\end{equation}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.4]{imm/area.png}
+\includegraphics[scale=0.38]{imm/area.png}
 \end{center}
 \caption{Integrated photo-peak area. [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
 \label{fig:peak}
 \end{figure}
 
-SiPM spectrum has Poissonian distribution (discussed in ..), and therefore I expected a constant value for $FWHM/\sqrt{N}$, where FWHM is the width of single PE peaks and N is the number of considered PE. Result example in Fig~\ref{fig:fwhm}.
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[scale=0.4]{imm/fwhm.png}
-\end{center}
-\caption{$FWHM/\sqrt{N}$ . [$^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V)].} 
-\label{fig:fwhm}
-\end{figure}
-
-First PE width values (1 to 5 $e^-$) are quite inconsistent compared to high energy peaks, because of high rate that causes peak distortion and consequently a difficulty to fit curves increasing errors.\\[2ex]
+First PE width and amplitude values (1 to 5 $e^-$) are quite inconsistent compared to high energy peaks, because of high rate that causes peak distortion and consequently a difficulty to fit curves increasing errors.\\
 Other distortions are introduced by increasing the overvoltage value, that  makes totally asymmetric peaks (Fig~\ref{fig:es_conf}).
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[scale=0.5]{imm/conf.png}
+\includegraphics[scale=0.7]{imm/conf.png}
 \end{center}
 \caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 (+3V) while varying overvoltage.} 
 \label{fig:es_conf}
 \end{figure}
 
-In this case used software does not converge while fitting, therefore I calculated position and photo-peak area by numerical integration. This way is logically more inaccurate than analytical study, because I can't elaborate a model that explains right distortions due to SiPM impurities and pile-up events.\\[2ex]
+In this case used software does not converge while fitting, therefore I calculated position and photo-peak area by numerical integration. This way is logically more inaccurate than analytical study, because I cannot elaborate a model that explains right distortions due to SiPM impurities and pile-up events.\\[2ex]
 
-I analyzed EJ-200, EJ-204 and EJ-260 spectra using explained methodology. Calibration results are listed in Tab (..) and fit results in Tab (..).\\[3ex]
+I analyzed EJ-200 (Fig~\ref{fig:ej200_fit}), EJ-204 (Fig~\ref{fig:ej204_fit}) and EJ-260 (Fig~\ref{fig:ej260_fit}) spectra using explained methodology. Calibration results are listed in Tab (..) and fit results in Tab~\ref{tab:fit}.
 
-\begin{huge}
-\textcolor{red}{TABELLE}
-\end{huge}
+
+\begin{table}[!h]
+\centering
+\caption{Fit results for EJ-200, EJ-204 and EJ-260 while varying $V_{op}$}
+\label{tab:fit}
+{\small
+\begin{tabular}{@{}cccccccc@{}}
+\toprule
+                                 & \multicolumn{6}{c}{\textbf{FIT RESULTS}}                                                              &                  \\ \midrule
+Scatterer                        & Center $[e^-]$   & $\sigma [e^-]$  & FWHM $[e^-]$   & Area $[cts/s]$ & $\chi^2_{red}$ & Res {[}\%{]}  & $V_{op}$ [V] \\ \midrule
+\multirow{4}{*}{\textbf{EJ-200}} & $10.13 \pm 0.02$ & $3.86 \pm 0.03$ & $9.09\pm 0.07$ & $248 \pm 1$    & 0.1            & $89\pm 6$     & +2               \\
+                                 & $12.8 \pm 0.1$   & $4.4 \pm 0.1$   & $10.3\pm 0.2$  & $240 \pm 5$    & 0.86           & $80\pm 2$     & +3               \\
+                                 & $14.0 \pm 0.1$   & $4.5 \pm 0.1$   & $10.5\pm 0.2$  & $211 \pm 6$    & 0.57           & $75\pm 1$     & +4               \\
+                                 & $17 \pm 1$       & -               & -              & $210 \pm 18$   & -              & -             & +5               \\ \cmidrule(l){2-8} 
+\multirow{4}{*}{\textbf{EJ-204}} & $11.02 \pm 0.05$ & $4.22\pm 0.06$  & $9.9\pm 0.1$   & $253\pm 4$     & 0.62           & $89\pm 1$     & +2               \\
+                                 & $13.81\pm 0.04$  & $5.0 \pm 0.4$   & $11.7\pm 0.9$  & $262 \pm 3$    & 0.29           & $84\pm 4$     & +3               \\
+                                 & $15.51\pm 0.08$  & $5.6\pm 0.1$    & $13.1\pm 0.2$  & $269\pm 5$     & 0.51           & $84\pm 1$     & +4               \\
+                                 & $20.32\pm 0.07$  & $7.4 \pm 0.1$   & $17.4\pm 0.2$  & $255\pm 9$     & 0.16           & $85\pm 1$     & +6               \\ \cmidrule(l){2-8}
+\multirow{2}{*}{\textbf{EJ-260}} & $11.03 \pm 0.03$ & $4.07\pm 0.03$  & $9.58\pm 0.08$ & $236\pm 1$     & 0.1            & $86.8\pm 0.7$ & +2               \\
+                                 & $14.29\pm 0.06$  & $4.79\pm 0.08$  & $11.2\pm 0.1$  & $234\pm 3$     & 0.3            & $78.3\pm 0.7$ & +3       \\    
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.35]{imm/ej200_fit.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-200+ LCT5/1 while varying overvoltage. Left figure: acquired spectrum. Right figure: integrated spectrum.} 
+\label{fig:ej200_fit}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.35]{imm/ej_204_fit.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-204+ LCT5/1 while varying overvoltage. Left figure: acquired spectrum. Right figure: integrated spectrum.} 
+\label{fig:ej204_fit}
+\end{figure}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.35]{imm/ej260_fit.png}
+\end{center}
+\caption{Acquired spectrum of $^{109}Cd$ @ 22keV with EJ-260+ LCT5/1 while varying overvoltage. Left figure: acquired spectrum. Right figure: integrated spectrum.} 
+\label{fig:ej260_fit}
+\end{figure}
 
 \clearpage
 \addcontentsline{toc}{chapter}{\refname}
