@@ -1,0 +1,41 @@
+\documentclass[10pt,a4paper, openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{lmodern}
+\usepackage{tablefootnote}
+\usepackage[sc]{mathpazo}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\hypersetup{pdftex, colorlinks=true,linkcolor=black}
+
+\newcommand\mytokens[1]{\mytokenshelp#1 \relax\relax}
+\def\mytokenshelp#1 #2\relax{\allowbreak\grayspace\tokenscolor{#1}\ifx\relax#2\else
+ \mytokenshelp#2\relax\fi}
+\newcommand\tokenscolor[1]{\colorbox{gray!20}{\textcolor{black}{%
+  \ttfamily\mystrut\smash{\detokenize{#1}}}}}
+\def\mystrut{\rule[\dimexpr-\dp\strutbox+\fboxsep]{0pt}{%
+ \dimexpr\normalbaselineskip-2\fboxsep}}
+\def\grayspace{\hspace{0pt minus \fboxsep}}
+
+\usepackage{floatrow}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+\usepackage{blindtext}
+
+\author{Armando Brandonisio}
+\title{\textbf{Software chapter}\\COMPASS thesis}
+
+\begin{document}
+\maketitle
+\tableofcontents \newpage
+
+\chapter{Software development}
+
+\end{document}
